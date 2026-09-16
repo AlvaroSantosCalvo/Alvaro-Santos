@@ -1,4 +1,4 @@
-package AccesoADatos.UD1.DAOEjemplo;
+package AAD.UD1.DAOEjemplo;
 
 import java.io.BufferedWriter;
 import java.io.File;

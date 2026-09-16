@@ -1,4 +1,4 @@
-package AccesoADatos.UD1.DAOEjemplo;
+package AAD.UD1.DAOEjemplo;
 import java.util.Scanner;
 
 public class Main {
