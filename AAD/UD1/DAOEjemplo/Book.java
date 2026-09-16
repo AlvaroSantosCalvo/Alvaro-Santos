@@ -16,6 +16,11 @@ public class Book {
 
     public void setIsbn (String isbn) {this.isbn = isbn; }
     public void setName (String name) {this.name = name; }
+
+    @Override
+    public String toString() {
+        return isbn + ";" + name;
+    }
 }
 
 
