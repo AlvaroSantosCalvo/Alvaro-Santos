@@ -7,10 +7,10 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         // AWT--------------------------------------------------------------
-        // Crear ventana 
+       /*  // Crear ventana 
         Frame windowAWT = new Frame("Ventana de prueba AWT");
         
-        /* // Cerrar ventana
+        // Cerrar ventana
         windowAWT.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent event) {
