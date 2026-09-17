@@ -65,25 +65,45 @@ public class BookDAO {
         fr.close();
         return null;
     };
-
-    // DELETE
-    public void deleteBook(String isbn) throws Exception {
-        List <Book> books = getAllBooks();
+    // UPDATE
+    public Book updateBookByIsbn(String isbn) throws Exception {
+        List<Book> books = getAllBooks();
         File f = new File(this.ruta);
         FileWriter fw = new FileWriter(f);
         BufferedWriter bw = new BufferedWriter(fw);
-        for (Book b : getAllBooks()){
+        Book updatedBook = null;
+        for (Book book : books) {
+            if (book.getIsbn().equals(isbn)) {
+                updatedBook = book;
+            } else {
+                bw.write(book.getIsbn() + ";" + book.getName() + "\n");
+            }
+        }
+        bw.close();
+        fw.close();
+        return updatedBook;
+    }
+
+    // DELETE
+    public void deleteBook(String isbn) throws Exception {
+        List<Book> books = getAllBooks();
+        File f = new File(this.ruta);
+        FileWriter fw = new FileWriter(f);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for (Book book : books) {
             if (!book.getIsbn().equals(isbn)) {
                 bw.write(book.getIsbn() + ";" + book.getName() + "\n");
             }
         }
-       /*  books.forEach((book)->{
-            if (!book.getIsbn().equals(isbn)) {
-                try {
-                    bw.write(book.getIsbn() + ";" + book.getName() + "\n");
-                } catch (IOException e) {IO.print(e);}
-            }
-        }); */
+        /*
+         * books.forEach((book)->{
+         * if (!book.getIsbn().equals(isbn)) {
+         * try {
+         * bw.write(book.getIsbn() + ";" + book.getName() + "\n");
+         * } catch (IOException e) {IO.print(e);}
+         * }
+         * });
+         */
         bw.close();
         fw.close();
 

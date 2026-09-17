@@ -12,7 +12,7 @@ public class Main {
         boolean ok = true;
 
         while (ok) {
-            IO.println("-------------------");
+            IO.println("\n-------------------");
             IO.println("(C)reate book");
             IO.println("(R)ead book");
             IO.println("(U)pdate book");
@@ -51,7 +51,17 @@ public class Main {
                     }
                     break;
                 case "U", "u":
-
+                    IO.println("Introduce el isbn del libro que quieres modificar: ");
+                    String isbnUpdate = IO.readln();
+                    IO.println("Introduce el nuevo nombre: ");
+                    String newName = IO.readln();
+                    Book bookUpdate = bookDAO.getBookByIsbn(isbnUpdate);
+                    if (bookUpdate == null) {
+                        IO.println("El libro no está en la BDD.");
+                    } else {
+                        bookUpdate.setName(newName);
+                        bookDAO.updateBookByIsbn(isbnUpdate);
+                    }
                     break;
                 case "D", "d":
                     IO.println("Introduce el isbn:");
