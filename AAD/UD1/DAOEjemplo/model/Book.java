@@ -1,4 +1,4 @@
-package AAD.UD1.DAOEjemplo;
+package AAD.UD1.DAOEjemplo.model;
 
 public class Book {
     private  String isbn;

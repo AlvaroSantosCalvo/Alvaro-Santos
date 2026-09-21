@@ -1,4 +1,4 @@
-package AAD.UD1.DAOEjemplo;
+package AAD.UD1.DAOEjemplo.dao;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,22 +8,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import AAD.UD1.DAOEjemplo.model.Book;
 
 public class BookDAO {
 
     public String ruta;
-
-    BookDAO(String ruta) {
+    public BookDAO(String ruta) {
         this.ruta = ruta;
     }
 
     // CREATE - INSERT book INTO Books
     // UPDATE - UPDATE book INTO Books
     public void saveBook(Book book) throws Exception {
-        File f = new File("Books.txt");
+        File f = new File(this.ruta);
         FileWriter fw = new FileWriter(f, true);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write("\n" + book.getIsbn() + ";" + book.getName());
+        bw.write(book.getIsbn() + ";" + book.getName() + "\n");
         bw.close();
         fw.close();
     };

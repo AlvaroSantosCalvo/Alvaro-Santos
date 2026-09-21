@@ -1,4 +1,4 @@
-package PSP.UD1;
+package UD1;
 
 public class ProcesoEjemplo {
     public static void main(String[] args) throws Exception {

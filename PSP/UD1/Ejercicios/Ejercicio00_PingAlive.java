@@ -1,5 +1,3 @@
-package PSP.UD1.Ejercicios;
-
 public class Ejercicio00_PingAlive {
 
     public static void main() throws Exception {
