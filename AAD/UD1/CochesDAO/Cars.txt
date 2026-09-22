@@ -1,0 +1,8 @@
+Toyota;Corolla;2020
+Seat;Ibiza;2018
+Volkswagen;Golf;2021
+Ford;Focus;2019
+Renault;Clio;2017
+Tesla;Model 3;2023
+BMW;Serie 3;2022
+Audi;A4;2020

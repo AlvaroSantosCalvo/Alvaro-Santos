@@ -2,57 +2,70 @@ package dao;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import model.Book;
 
-public class LocalBookDAO {
+public class LocalBookDAO implements InterfazBookDAO {
     
     String ruta;
     List<Book> libros;
 
-    public LocalBookDAO(String ruta) throws Exception{
+    public LocalBookDAO(String ruta) {
         this.ruta = ruta;
         this.libros = cargarDatos();
     }
 
-    public List<Book> cargarDatos() throws Exception{
+    private  List<Book> cargarDatos() {
         // BookDAO bookDAO = new BookDAO(ruta);
         // return bookDAO.consultarTodos();
         //
-        List<Book> books = new ArrayList<>();
         File f = new File(this.ruta);
-        FileReader fr = new FileReader(f);
-        BufferedReader br = new BufferedReader(fr);
-        String linea;
-        while ((linea = br.readLine())!= null) {
-            Book book = new Book(
-                linea.split(";")[0],
-                linea.split(";")[1]
-            );
-            books.add(book);
+        List<Book> books = new ArrayList<>();
+        try (
+            FileReader fr = new FileReader(f);
+            BufferedReader br = new BufferedReader(fr);) {
+            String linea;
+            while ((linea = br.readLine())!= null) {
+                Book book = new Book(
+                    linea.split(";")[0],
+                    linea.split(";")[1]
+                );
+                books.add(book);
+            }
         }
-        br.close();
-        fr.close();
+        catch (FileNotFoundException  e) {
+            IO.print("El archivo no se ha encontrado.");
+        } catch (IOException | IndexOutOfBoundsException  e) {
+            IO.print("Error leyendo el fichero, archivo corrupto.");
+        }
         return books;
     }
 
-    public void guardarDatos() throws Exception{
+    private void guardarDatos() {
         File f = new File(this.ruta);
-        FileWriter fw = new FileWriter(f);
-        BufferedWriter bw = new BufferedWriter(fw);
-        for (Book libro : this.libros){
-            bw.write(libro.getIsbn() + ";" + libro.getName() + "\n");
+        try (
+            FileWriter fw = new FileWriter(f);
+            BufferedWriter bw = new BufferedWriter(fw);
+        ) {
+            for (Book libro : this.libros){
+                bw.write(libro.getIsbn() + ";" + libro.getName() + "\n");
+            }
+        } 
+        catch (IOException e) {
+           IO.print("Error leyendo el fichero, archivo corrupto.");
         }
-        bw.close();
-        fw.close();
+
     }
 
     public void insertar(Book libro){
         this.libros.add(libro);
+        guardarDatos();
     }
 
     public void actualizar(String isbn, String nuevoNombre){
@@ -62,6 +75,7 @@ public class LocalBookDAO {
                 break;
             }
         }
+        guardarDatos();
     }
 
     public List<Book> consultarTodos(){
@@ -82,5 +96,6 @@ public class LocalBookDAO {
         if (libro != null){
             this.libros.remove(libro);
         }
+        guardarDatos();
     }
 }

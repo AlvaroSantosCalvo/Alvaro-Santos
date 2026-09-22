@@ -1,11 +1,20 @@
 import java.util.List;
 import java.util.Scanner;
+import java.io.File;
 
 import dao.BookDAO;
 import dao.LocalBookDAO;
 import model.Book;
 
 public class Main {
+
+    private static String rutaBooks() {
+        String ruta = "Books.txt";
+        if (!new File(ruta).exists()) {
+            ruta = "MiPrimerDAO-20260922/Books.txt";
+        }
+        return ruta;
+    }
     
     static Scanner SC = new Scanner(System.in);
     public void main() throws Exception {
@@ -20,7 +29,7 @@ public class Main {
     }
 
     public static void local() throws Exception{
-        LocalBookDAO dao = new LocalBookDAO("Books.txt");
+        LocalBookDAO dao = new LocalBookDAO(rutaBooks());
         boolean ok = true;
 
         while (ok) {
@@ -73,7 +82,7 @@ public class Main {
     }
 
     public static void remoto() throws Exception{
-        BookDAO dao = new BookDAO("Books.txt");
+        BookDAO dao = new BookDAO(rutaBooks());
         boolean ok = true;
 
         while (ok) {

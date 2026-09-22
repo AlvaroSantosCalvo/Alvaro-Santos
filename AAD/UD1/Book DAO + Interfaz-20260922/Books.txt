@@ -1,0 +1,5 @@
+2;Programacion
+3;Bases de datos
+5;Mi primer DAO
+34;Estoy un poco perdido dani
+53;esta vez si

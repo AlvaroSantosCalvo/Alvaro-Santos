@@ -69,5 +69,18 @@ public class App {
         windowSWING.add(panelSWING);
 
 
+        // Creación de una ventana con un contenedor aplicando una distribución concreta
+        // Con SWING
+        JFrame windowDist = new JFrame("ventana con distribución");
+        windowDist.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        windowDist.setSize(900, 600);
+        windowDist.setVisible(true);
+
+        windowDist.setLayout(BorderLayout());
+        JPanel north = new JPanel();
+        JPanel center = new JPanel();
+        windowDist.add(north.BorderLayout.NORTH);
+        windowDist.add(center.BorderLayout.CENTER);
     }
+
 }
