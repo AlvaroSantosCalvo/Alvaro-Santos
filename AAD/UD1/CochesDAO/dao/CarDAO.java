@@ -1,14 +1,16 @@
 package CochesDAO.dao;
 
+import java.io.File;
 import java.util.List;
 
 import CochesDAO.model.Car;
 
-public class CarDAO {
+public interface CarDAO {
     
-    public void insertar(Car car);
+    public void insertar(Car coche);
 
-    public List<Car> obtenerTodos();
+    List<Car> obtenerTodos();
 
     public List<Car> obtenerMarca(String marca);
 }
+
