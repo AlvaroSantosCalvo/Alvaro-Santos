@@ -1,4 +1,4 @@
-package UD1;
+
 
 public class ProcesoEjemplo2 {
     void main() throws Exception {

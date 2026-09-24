@@ -1,4 +1,3 @@
-package UD1;
 
 import java.util.Scanner;
 
