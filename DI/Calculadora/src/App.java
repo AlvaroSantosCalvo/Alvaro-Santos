@@ -1,4 +1,5 @@
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
@@ -7,6 +8,11 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JTextField;
 
 public class App {
@@ -43,13 +49,21 @@ public class App {
         ventana.add(copyright, BorderLayout.SOUTH);
 
         // Creamos componentes para el panel pantalla
-        JTextField lcdDisplay = new JTextField("0.", 20);
+        JTextField lcdDisplay = new JTextField("0.", 18);
         lcdDisplay.setHorizontalAlignment(JTextField.RIGHT);
         lcdDisplay.setPreferredSize(new Dimension(0, 70));
         lcdDisplay.setBackground(Color.BLACK);
         lcdDisplay.setForeground(Color.WHITE);
         lcdDisplay.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
+
+        JComboBox<String> modCalc = new JComboBox<String>();
+        modCalc.addItem("Estándar"); 
+        modCalc.addItem("Científica");
+
+        // Añadimos componentes al panel pantalla
+        pantalla.add(modCalc);
         pantalla.add(lcdDisplay);
+
 
         // Creamos componentes para el panel teclado numérico
         JButton boton1 = new JButton("1");
@@ -127,5 +141,34 @@ public class App {
         copyright.add(textoCopyright);
 
         ventana.setVisible(true);
+
+        // Creamos listeners para detectar eventos
+        for (JButton boton : botonesNumericos) {
+            boton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    boton.setBackground(Color.CYAN);
+                }
+            });
+        }
+
+        // Para la selección de elementos del comboBox modCalc
+        modCalc.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (modCalc.getSelectedItem() == "Científica") {
+                    operadores.setVisible(false);
+                } else {
+                    operadores.setVisible(true);
+                }
+            }
+        });
+
+        // Para detectar que se ha pulsado la tecla M para cambio de modo de la calculadora
+        /* String tecla = "m";
+        tecla.addKeyListener(new KeyListener() {
+           public void keyPressed(KeyEvent e){
+            operadores.setVisible(false);
+           } 
+        }); */
+
     }
 }
