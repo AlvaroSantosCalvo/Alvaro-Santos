@@ -1,0 +1,5 @@
+1; Teclado; 25
+2; Ratón; 15
+3; Monitor; 180
+4; Auriculares; 40
+5; Memoria USB; 12

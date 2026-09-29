@@ -1,0 +1,3 @@
+1;Ordenador;1200.89
+2;Monitor 4K;239.99
+3;Raton;14.95

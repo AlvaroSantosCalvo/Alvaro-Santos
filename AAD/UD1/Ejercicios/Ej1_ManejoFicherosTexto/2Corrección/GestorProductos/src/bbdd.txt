@@ -1,0 +1,2 @@
+1;Ordenador;1200.89
+2;Monitor 4K;239.99
