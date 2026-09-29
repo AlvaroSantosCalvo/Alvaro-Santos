@@ -1,6 +1,5 @@
 package CochesDAO.dao;
 
-import java.io.File;
 import java.util.List;
 
 import CochesDAO.model.Car;
