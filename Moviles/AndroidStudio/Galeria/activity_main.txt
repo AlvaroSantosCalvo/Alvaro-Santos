@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="18sp"
+    >
+
+
+    <ImageView
+        android:id="@+id/miFoto"
+        android:layout_width="378dp"
+        android:layout_height="351dp"
+        android:layout_marginTop="60sp"
+        android:layout_marginBottom="15sp"
+        android:background="#E9E0E0"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCargar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnCargar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/green"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/miFoto" />
+
+    <LinearLayout
+        android:id="@+id/gridButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnCargar">
+
+        <Button
+            android:id="@+id/bGris"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/gray"
+            android:text="Gris" />
+
+        <Button
+            android:id="@+id/bOriginal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="Original" />
+
+        <Button
+            android:id="@+id/bSepia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/sepia"
+            android:text="Sepia" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
