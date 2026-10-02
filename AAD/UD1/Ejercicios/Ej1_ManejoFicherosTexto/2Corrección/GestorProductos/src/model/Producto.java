@@ -1,5 +1,7 @@
 package model;
 
+//Esperar al ejercicio subido
+
 public class Producto {
     
     Integer id;
