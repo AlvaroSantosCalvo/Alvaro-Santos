@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
-public class ContarAparaciones {
+public class ContarAparaciones2 {
     public static void main(String[] args) {
         String archivoBat = "./contar_palabras.bat";
         String ficheroTexto = "loremipsum.txt";
@@ -37,5 +37,24 @@ public class ContarAparaciones {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public static void ContarAparacionesRedireccion(){
+        File fichero = new File("loremipsum.txt");
+        File salida = new File("palabrasContadas");
+        String archivoBat = "contar_palabras.bat";
+        String palabra = "in";
+
+        ProcessBuilder pBuilder = new ProcessBuilder(archivoBat, palabra);
+        pBuilder.redirectInput(fichero);
+        pBuilder.redirectOutput(palabra);
+        try {
+            Process p = pBuilder.start();
+            p.waitFor();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+
     }
 }
