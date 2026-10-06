@@ -2,12 +2,31 @@ import java.util.List;
 
 import dao.ProductoDAO;
 import dao.ProductoDAOTexto;
+import dao.ProductoDAOBinario;
 import model.Producto;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-       
-        ProductoDAO dao = new ProductoDAOTexto("src\\bbdd.txt");
+
+        System.out.println("=======================");
+        System.out.println("    Elige la BDD    ");
+        System.out.println("=======================");
+        System.out.println("1. Texto");
+        System.out.println("2. Binario");
+        System.out.println("=======================");
+
+        int opcion = Integer.parseInt(IO.readln());
+            ProductoDAO dao;
+            switch (opcion) {
+                case 1:
+                    dao = new ProductoDAOTexto("src\\bbdd.txt");
+                break;
+                default:
+                    dao = new ProductoDAOBinario("src\\bbdd.bin1");
+                break;
+            }
+
+
         List<Producto> productos = dao.listarTodos();
         boolean ok = true;
 
@@ -16,7 +35,7 @@ public class Main {
             System.out.println("    GESTOR DE STOCK    ");
             System.out.println("=======================");
             System.out.println("1. Ver todos los productos");
-            System.out.println("2. Añadir producto");
+            System.out.println("2. Añadir producto"); 
             System.out.println("3. Salir");
             System.out.println("=======================");
 

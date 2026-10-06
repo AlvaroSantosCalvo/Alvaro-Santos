@@ -163,12 +163,15 @@ public class App {
         });
 
         // Para detectar que se ha pulsado la tecla M para cambio de modo de la calculadora
-        /* String tecla = "m";
-        tecla.addKeyListener(new KeyListener() {
-           public void keyPressed(KeyEvent e){
-            operadores.setVisible(false);
-           } 
-        }); */
+        addKeyListener(this);
+        @Override 
+        public void keyPressed(KeyEvent e) {
+            int codigo = e.getKeyCode();
+            String nombreTecla = KeyEvent.getKeyText(codigo);
+            if (nombreTecla == "m" || nombreTecla == "M") {
+                
+            }
+        } 
 
     }
 }

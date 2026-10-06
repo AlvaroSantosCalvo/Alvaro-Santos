@@ -1,11 +1,9 @@
 package dao;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -21,37 +19,40 @@ public class ProductoDAOBinario implements ProductoDAO {
         this.fichero = new File(ruta);
     }
 
-    @Override 
+    @Override
     public void guardarTodos(List<Producto> productos) {
-        
         try (
-            FileOutputStream fStream = new FileOutputStream(fichero);
-            ObjectOutputStream writer = new ObjectOutputStream(fStream);
+            FileOutputStream outputStream = new FileOutputStream(fichero);
+            ObjectOutputStream writer = new ObjectOutputStream(outputStream);
         ) {
-            for(Producto p : productos){
+            for (Producto p : productos) {
                 writer.writeObject(p);
-            }
-            writer.close();
-            System.out.println("Datos exportados correctamente al fichero BINARIO.");            
-        }
-        catch (Exception e) {
+            }            
+            System.out.println("Datos exportados correctamente al fichero BINARIO.");
+        } catch (Exception e) {
             System.err.println("[ERROR] : Fallo al escribir en la base de datos binaria.");
         }
     }
-    
 
-    @Override 
+    @Override
     public List<Producto> listarTodos() {
-        List<Producto> productos = new ArrayList<>();
+        List<Producto> lista_Productos = new ArrayList<>();
         try (
-            FileInputStream fStream = new FileInputStream(fichero);
-            ObjectInputStream writer = new ObjectInputStream(fStream);
+            FileInputStream inputStream = new FileInputStream(fichero);
+            ObjectInputStream reader = new ObjectInputStream(inputStream);
         ) {
-            
-        } catch (Exception e) {
-            System.err.println("[ERROR] : Fallo al leer en la base de datos binaria.");
+            while (true) {
+                Producto p = (Producto) reader.readObject();
+                lista_Productos.add(p);
+            }
         }
-        return productos;
+        catch (EOFException e){
+            System.out.println("[OK] : Se ha cargado correctamente la base de datos.");
+        }
+        catch (Exception e) {
+            System.out.println("[ERROR] : Fallo al leer en la base de datos binaria.");
+        }
+        return lista_Productos;
     }
-    
+
 }

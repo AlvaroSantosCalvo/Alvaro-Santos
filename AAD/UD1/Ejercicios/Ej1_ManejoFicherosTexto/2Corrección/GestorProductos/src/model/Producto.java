@@ -1,9 +1,12 @@
 package model;
 
+import java.io.Serializable;
+
 //Esperar al ejercicio subido
 
-public class Producto {
+public class Producto implements Serializable {
     
+    static final long serialVersionUID = 1L;
     Integer id;
     String nombre;
     Double precio;
