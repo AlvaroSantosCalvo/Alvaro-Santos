@@ -1,0 +1,7 @@
+ByteMadrid - Equipos
+	- Nombre del equipo
+	- Fabricante
+	- Modelo
+	- Número de serie
+	- Precio
+	- Estado(activo e inactivo)
