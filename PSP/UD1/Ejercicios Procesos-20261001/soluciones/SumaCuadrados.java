@@ -12,9 +12,9 @@ import java.util.List;
 public class SumaCuadrados {
     public static void main(String[] args) {
                 
-        ProcessBuilder pBuilder = new ProcessBuilder(
+        /* ProcessBuilder pBuilder = new ProcessBuilder(
             "cmd", "/c", 
-            "cuadrados.bat", "1", "2", "3", "4");
+            "cuadrados.bat", "numeros.txt");
 
         ProcessBuilder pBuilder2 = new ProcessBuilder(
             "cmd", "/c", 
@@ -50,12 +50,13 @@ public class SumaCuadrados {
 
         } catch (Exception e) {
             System.out.println(e);
-        }
+        } */
 
+            conPipelineyRedireccion();
     }
 
 
-    public static void conPipeline(){
+    /* public static void conPipeline(){
         ProcessBuilder pBuilder = new ProcessBuilder(
             "cmd", "/c", 
             "cuadrados.bat");
@@ -86,7 +87,7 @@ public class SumaCuadrados {
         } catch (IOException e) {
             e.printStackTrace();
         } 
-    }
+    } */
 
     public static void conPipelineyRedireccion(){
         ProcessBuilder pBuilder = new ProcessBuilder(

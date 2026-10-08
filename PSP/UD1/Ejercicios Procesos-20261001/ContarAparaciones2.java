@@ -47,7 +47,7 @@ public class ContarAparaciones2 {
 
         ProcessBuilder pBuilder = new ProcessBuilder(archivoBat, palabra);
         pBuilder.redirectInput(fichero);
-        pBuilder.redirectOutput(palabra);
+        pBuilder.redirectOutput(salida);
         try {
             Process p = pBuilder.start();
             p.waitFor();
