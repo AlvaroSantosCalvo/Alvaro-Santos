@@ -4,7 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Solucion {
+public class SolucionOrganizador {
     public static void main(String[] args) {
         String nombreRaiz = IO.readln("Nombre del directorio raiz: ");
         Path rutaRaiz = Paths.get(nombreRaiz);

@@ -25,30 +25,33 @@ public class BuscadorProyectos {
         System.out.println("--------------------------");
         String opcion = IO.readln("(C)rear\n(B)orrar\n(M)over\n");
 
-        switch (opcion) {
+        switch (opcion.toLowerCase()) {
             case "c":
-                String crear = IO.readln("(D)irectorio o (F)ichero");
-                if (crear=="d"|crear=="D") {
-                    String nombreDCrear = IO.readln("Nombre del directorio a crear: ");
-                }else{
-                    String nombreFCrear = IO.readln("Nombre del fichero a crear: ");
+                String doF = IO.readln("Dir o File: ");
+                if ("d".equalsIgnoreCase(doF)) {
+                    String newName = IO.readln("Nombre del directorio a crear: ");
+                    Path newDir = Paths.get(newName);
+                    try {
+                        Files.createDirectory(newDir);
+                        System.out.println("Carpeta creada: " + newDir);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if ("f".equalsIgnoreCase(doF)) {
+                    String newName = IO.readln("Nombre del fichero a crear: ");
+                    Path newFile = Paths.get(newName);
+                    try {
+                        Files.createFile(newFile);
+                        System.out.println("Fichero creado: " + newFile);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
                 break;
             case "b":
-                String borrar = IO.readln("(D)irectorio o (F)ichero");
-                if (borrar=="d"|borrar=="D") {
-                    String nombreDCrear = IO.readln("Nombre del directorio a borrar: ");
-                }else{
-                    String nombreFCrear = IO.readln("Nombre del fichero a borrar: ");
-                }
                 break;
             case "m":
-                String mover = IO.readln("(D)irectorio o (F)ichero");
-                if (mover=="d"|mover=="D") {
-                    String nombreDCrear = IO.readln("Nombre del directorio a mover: ");
-                }else{
-                    String nombreFCrear = IO.readln("Nombre del fichero a mover: ");
-                }
                 break;
             default:
                 break;
