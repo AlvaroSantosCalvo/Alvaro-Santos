@@ -1,19 +1,26 @@
+import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -107,7 +114,7 @@ public class App {
         for (JButton boton : botonesNumericos) {
             boton.setBackground(blanco);
             boton.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
-            boton.setFocusPainted(false);
+            boton.setFocusPainted(true);//false
         }
         botonClear.setBackground(rojo);
         botonClear.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
@@ -162,16 +169,39 @@ public class App {
             }
         });
 
-        // Para detectar que se ha pulsado la tecla M para cambio de modo de la calculadora
-        addKeyListener(this);
-        @Override 
-        public void keyPressed(KeyEvent e) {
-            int codigo = e.getKeyCode();
-            String nombreTecla = KeyEvent.getKeyText(codigo);
-            if (nombreTecla == "m" || nombreTecla == "M") {
-                
+        // Para detectar que se ha pulsado tecla del número 1 aplicada al botón de la calculadora
+        ventana.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_1 | e.getKeyCode() == KeyEvent.VK_NUMPAD1) {
+                    boton1.doClick();
+                }
+            };
+        });
+
+        /* // Key Event Dispatcher
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
+            public boolean dispatchKeyEvent(KeyEvent e) {
+                if (ventana.isActive() && e.getID() == KeyEvent.KEY_PRESSED
+                        && (e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_NUMPAD1)) {
+                    boton1.doClick();
+                    return true;
+                }
+                return false;
             }
-        } 
+        }); */
+        /* // Key Binding
+        ventana.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+                .put(KeyStroke.getKeyStroke(KeyEvent.VK_1, 0), "pulsar-1");
+        ventana.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+                .put(KeyStroke.getKeyStroke(KeyEvent.VK_NUMPAD1, 0), "pulsar-1");
+        ventana.getRootPane().getActionMap().put("pulsar-1", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                boton1.doClick();
+            }
+        }); */
+        
+         
 
     }
 }
