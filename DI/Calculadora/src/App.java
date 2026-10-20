@@ -37,8 +37,9 @@ public class App {
         pantalla.setLayout(new FlowLayout());
         pantalla.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 12, 12, 12));
 
-        JPanel tecladoNum = new JPanel();
-        tecladoNum.setLayout(new GridLayout(4, 3, 10, 10));
+        /* JPanel tecladoNum = new JPanel();
+        tecladoNum.setLayout(new GridLayout(4, 3, 10, 10));*/
+        tecladoNumerico tecladoNumerico = new tecladoNumerico();
 
         JPanel operadores = new JPanel();
         operadores.setLayout(new GridLayout(5, 1, 0, 10));
@@ -51,7 +52,7 @@ public class App {
         copyright.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 0, 25, 0));
 
         ventana.add(pantalla, BorderLayout.NORTH);
-        ventana.add(tecladoNum, BorderLayout.CENTER);
+        ventana.add(tecladoNumerico, BorderLayout.CENTER);
         ventana.add(operadores, BorderLayout.EAST);
         ventana.add(copyright, BorderLayout.SOUTH);
 
@@ -72,7 +73,7 @@ public class App {
         pantalla.add(lcdDisplay);
 
 
-        // Creamos componentes para el panel teclado numérico
+        /* // Creamos componentes para el panel teclado numérico
         JButton boton1 = new JButton("1");
         JButton boton2 = new JButton("2");
         JButton boton3 = new JButton("3");
@@ -96,7 +97,7 @@ public class App {
         tecladoNum.add(boton3);
         tecladoNum.add(botonClear);
         tecladoNum.add(boton0);
-        tecladoNum.add(botonPunto);
+        tecladoNum.add(botonPunto); */
 
         // Creamos componentes para el panel operadores
         JButton botonSuma = new JButton("+");
@@ -108,7 +109,7 @@ public class App {
         Color azul = new Color(107, 220, 255);
         Color naranja = new Color(255, 180, 38);
         Color rojo = new Color(217, 43, 43);
-        JButton[] botonesNumericos = {
+        /* JButton[] botonesNumericos = {
                 boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8, boton9, boton0, botonPunto
         };
         for (JButton boton : botonesNumericos) {
@@ -119,7 +120,7 @@ public class App {
         botonClear.setBackground(rojo);
         botonClear.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         botonClear.setFocusPainted(false);
-        botonClear.setForeground(Color.WHITE);
+        botonClear.setForeground(Color.WHITE); */
 
 
         operadores.add(botonDivision);
@@ -149,14 +150,14 @@ public class App {
 
         ventana.setVisible(true);
 
-        // Creamos listeners para detectar eventos
+        /* // Creamos listeners para detectar eventos
         for (JButton boton : botonesNumericos) {
             boton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     boton.setBackground(Color.CYAN);
                 }
             });
-        }
+        } */
 
         // Para la selección de elementos del comboBox modCalc
         modCalc.addActionListener(new ActionListener() {
@@ -169,14 +170,15 @@ public class App {
             }
         });
 
-        // Para detectar que se ha pulsado tecla del número 1 aplicada al botón de la calculadora
+        /* // Para detectar que se ha pulsado tecla del número 1 aplicada al botón de la calculadora
         ventana.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_1 | e.getKeyCode() == KeyEvent.VK_NUMPAD1) {
+                    
                     boton1.doClick();
                 }
             };
-        });
+        }); */
 
         /* // Key Event Dispatcher
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
