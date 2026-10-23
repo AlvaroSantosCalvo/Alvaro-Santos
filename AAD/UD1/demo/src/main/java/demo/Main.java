@@ -3,6 +3,7 @@ package demo;
 import java.io.File;
 import java.util.List;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import demo.model.Persona;
@@ -22,6 +23,23 @@ public class Main {
         File fichero2 = new File("src\\main\\java\\demo\\data\\personas2.json");
 
         ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            
+            Persona [] array = mapper.readValue(fichero2, Persona[].class);
+            List<Persona> aList = List.of(array);
+            for(Persona p : aList){
+                System.out.println(p.getNombre());
+            }
+
+            List<Persona> lista1 = mapper.readValue(fichero2, new TypeReference<List<Persona>>(){});
+            for(Persona p : lista1){
+                System.out.println(p.getNombre());
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(fichero, lista);
