@@ -8,7 +8,6 @@ import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;

@@ -23,27 +23,28 @@ public class App {
         ventana.setSize(600, 800);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Creamos los paneles para la calculadora
+        /* // Creamos los paneles para la calculadora
         JPanel pantalla = new JPanel();
         pantalla.setLayout(new FlowLayout());
         pantalla.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 12, 12, 12));
-
+ */
         
         tecladoNumerico tecladoNumerico = new tecladoNumerico();
         tecladoNumerico.requestFocusInWindow();
         tecladoOperadores tecladoOperadores = new tecladoOperadores();
         tecladoOperadores.requestFocusInWindow();
+        pantallaLcd pantallaLcd = new pantallaLcd();
 
         JPanel copyright = new JPanel();
         copyright.setLayout(new FlowLayout());
         copyright.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 0, 25, 0));
 
-        ventana.add(pantalla, BorderLayout.NORTH);
+        ventana.add(pantallaLcd, BorderLayout.NORTH);
         ventana.add(tecladoNumerico, BorderLayout.CENTER);
         ventana.add(tecladoOperadores, BorderLayout.EAST);
         ventana.add(copyright, BorderLayout.SOUTH);
 
-        // Creamos componentes para el panel pantalla
+        /* // Creamos componentes para el panel pantalla
         JTextField lcdDisplay = new JTextField("0.", 18);
         lcdDisplay.setHorizontalAlignment(JTextField.RIGHT);
         lcdDisplay.setPreferredSize(new Dimension(0, 70));
@@ -51,15 +52,15 @@ public class App {
         lcdDisplay.setForeground(Color.WHITE);
         lcdDisplay.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
 
-        lcdDisplay.setFocusable(false);
+        lcdDisplay.setFocusable(false); */
 
-        JComboBox<String> modCalc = new JComboBox<String>();
+        /* JComboBox<String> modCalc = new JComboBox<String>();
         modCalc.addItem("Estándar"); 
-        modCalc.addItem("Científica");
+        modCalc.addItem("Científica"); */
 
-        // Añadimos componentes al panel pantalla
+        /* // Añadimos componentes al panel pantalla
         pantalla.add(modCalc);
-        pantalla.add(lcdDisplay);
+        pantalla.add(lcdDisplay); */
 
         // Creamos componentes para el panel copyright
         JTextField textoCopyright = new JTextField("Calculadora by DAM2");
@@ -71,7 +72,7 @@ public class App {
 
         ventana.setVisible(true);
 
-        //Para la selección de elementos del comboBox modCalc
+        /* //Para la selección de elementos del comboBox modCalc
         modCalc.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (modCalc.getSelectedItem() == "Científica") {
@@ -80,6 +81,6 @@ public class App {
                     tecladoOperadores.setVisible(true);
                 }
             }
-        });
+        }); */
     }
 }
