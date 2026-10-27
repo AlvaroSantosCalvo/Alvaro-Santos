@@ -1,9 +1,9 @@
 package ej.json;
 
 import java.io.File;
-import java.security.KeyStore.Entry;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,7 +40,8 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        
+        // Leer
         try {
             Usuario u = mapper.readValue(f1, Usuario.class);
             System.out.println(u);
