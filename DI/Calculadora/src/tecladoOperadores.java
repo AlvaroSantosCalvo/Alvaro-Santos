@@ -16,10 +16,15 @@ public class tecladoOperadores extends JPanel {
     private ActionMap mapaAcciones = getActionMap();
 
     public tecladoOperadores() {
-        setLayout(new GridLayout(5, 1, 10, 10));
+        setLayout(new GridLayout(6, 1, 10, 10));
         setBorder(new EmptyBorder(0, 10, 0, 5));
-        setPreferredSize(new java.awt.Dimension(110, 0));
+        setPreferredSize(new java.awt.Dimension(120, 0));
         
+        JButton botonBorrar = new JButton("C");
+        add(botonBorrar);
+        char teclaBorrar = 'c';
+        setBinding(teclaBorrar, botonBorrar);
+
         JButton botonDiv = new JButton("/");
         add(botonDiv);
         char tecla = '/';
@@ -45,21 +50,28 @@ public class tecladoOperadores extends JPanel {
         char teclaIgual = '=';
         setBinding(teclaIgual, botonIgual);
 
+
+        botonBorrar.setBackground(Color.GRAY);
         botonDiv.setBackground(Color.BLUE);
         botonMult.setBackground(Color.BLUE);
         botonMenos.setBackground(Color.BLUE);
         botonMas.setBackground(Color.BLUE);
         botonIgual.setBackground(Color.RED);
+
+        botonBorrar.setForeground(Color.BLACK);
         botonDiv.setForeground(Color.WHITE);
         botonMult.setForeground(Color.WHITE);
         botonMenos.setForeground(Color.WHITE);
         botonMas.setForeground(Color.WHITE);
         botonIgual.setForeground(Color.WHITE);
+        
+        botonBorrar.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         botonDiv.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         botonMult.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         botonMenos.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         botonMas.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         botonIgual.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
+        
     }
 
     private void setBinding(char c, final JButton boton) {

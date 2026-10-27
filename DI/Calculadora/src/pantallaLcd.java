@@ -1,46 +1,54 @@
-import javax.swing.JComboBox;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class pantallaLcd extends JPanel {
 
-    private String numerosOP;
+    private String digitos;
+    private JTextArea lcdArea;
 
     public pantallaLcd() {
-        JPanel pantalla = new JPanel();
-        pantalla.setLayout(new FlowLayout());
-        pantalla.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 12, 12, 12));
-        
-        JTextField lcdDisplay = new JTextField("0.", 18);
-        lcdDisplay.setHorizontalAlignment(JTextField.RIGHT);
-        lcdDisplay.setBackground(Color.BLACK);
-        lcdDisplay.setForeground(Color.WHITE);
-        lcdDisplay.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
-        lcdDisplay.setFocusable(false);
+        /* JPanel pantalla = new JPanel(); */
+        setLayout(new FlowLayout());
+        setBorder( new EmptyBorder(12, 12, 12, 12));
+        lcdArea = new JTextArea(1, 18);
+        lcdArea.setBackground(Color.BLACK);
+        lcdArea.setForeground(Color.WHITE);
 
-        JComboBox<String> modCalc = new JComboBox<String>();
-        modCalc.addItem("Estándar"); 
-        modCalc.addItem("Científica");
+        lcdArea.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
+        lcdArea.setFocusable(false);
+        add(lcdArea);
 
-        pantalla.add(modCalc);
-        pantalla.add(lcdDisplay);
-        add(pantalla);
+        /*
+         * JTextField lcdDisplay = new JTextField("0.", 18);
+         * lcdDisplay.setHorizontalAlignment(JTextField.RIGHT);
+         * lcdDisplay.setBackground(Color.BLACK);
+         * lcdDisplay.setForeground(Color.WHITE);
+         * lcdDisplay.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
+         * lcdDisplay.setFocusable(false);
+         * add(pantalla);
+         */
 
-        modCalc.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (modCalc.getSelectedItem() == "Científica") {
-                    tecladoOperadores tecladoOperadores = new tecladoOperadores();
-                    tecladoOperadores.setVisible(false);
-                } else {
-                    tecladoOperadores tecladoOperadores2 = new tecladoOperadores();
-                    tecladoOperadores2.setVisible(true);
-                }
-            }
-        });
     }
+
+    public String getDigito(String digito) {
+        lcdArea.append(digito);
+        return lcdArea.getText();
+    }
+
+    public void setDigito(String lcd) {
+        this.digitos = lcd;
+        lcdArea.append(lcd);
+    }
+
+    public void clearPantalla(String lcd) {
+        this.digitos = "";
+        lcdArea.setText("");
+    }
+    
+
 }

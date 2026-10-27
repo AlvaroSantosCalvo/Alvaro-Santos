@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 public class tecladoNumerico extends JPanel {
     private InputMap mapaEntrada = getInputMap(WHEN_IN_FOCUSED_WINDOW);
     private ActionMap mapaAcciones = getActionMap();
+    private JButton boton0;
 
     public tecladoNumerico() {
         setLayout(new GridLayout(4, 3, 10, 10));
@@ -30,7 +31,7 @@ public class tecladoNumerico extends JPanel {
             boton.setFocusPainted(true);// false
         }
         // Añadimos botones "0", "." y "+/-" y los asociamos a la tecla correspondiente
-        JButton boton0 = new JButton("0");
+        boton0 = new JButton("0");
         add(boton0);
         char tecla = '0';
         setBinding(tecla, boton0);
@@ -52,14 +53,22 @@ public class tecladoNumerico extends JPanel {
         botonP.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         botonCS.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
 
-        for (int i = 0; i < getComponentCount(); i++) {
+        /* for (int i = 0; i < getComponentCount(); i++) {
             JButton boton = (JButton) getComponent(i);
             boton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     boton.setBackground(Color.CYAN);
                 }
             });
-        }
+        } */
+    }
+
+    public void getPantalla(pantallaLcd displayPantalla) {
+        boton0.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito("0");
+            }
+        });
     }
 
     private void setBinding(char c, final JButton boton) {
