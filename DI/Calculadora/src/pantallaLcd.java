@@ -18,8 +18,9 @@ public class pantallaLcd extends JPanel {
         lcdArea = new JTextArea(1, 18);
         lcdArea.setBackground(Color.BLACK);
         lcdArea.setForeground(Color.WHITE);
-
         lcdArea.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
+        lcdArea.setLineWrap(true);
+        lcdArea.setWrapStyleWord(false);
         lcdArea.setFocusable(false);
         add(lcdArea);
 
@@ -41,7 +42,6 @@ public class pantallaLcd extends JPanel {
     }
 
     public void setDigito(String lcd) {
-        this.digitos = lcd;
         lcdArea.append(lcd);
     }
 

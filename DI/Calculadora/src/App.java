@@ -54,6 +54,9 @@ public class App {
         ventana.add(tecladoOperadores, BorderLayout.EAST);
         ventana.add(copyright, BorderLayout.SOUTH);
 
+        tecladoNumerico.getPantalla(pantalla);
+        ventana.setVisible(true);
+        
         // Para la selección de elementos del comboBox modCalc
         modCalc.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -97,9 +100,6 @@ public class App {
         textoCopyright.setBorder(null);
         copyright.add(textoCopyright);
 
-        ventana.setVisible(true);
-
-        tecladoNumerico.getPantalla(pantalla);
 
         /* // Para la selección de elementos del comboBox modCalc
         modCalc.addActionListener(new ActionListener() {

@@ -16,6 +16,18 @@ public class tecladoNumerico extends JPanel {
     private InputMap mapaEntrada = getInputMap(WHEN_IN_FOCUSED_WINDOW);
     private ActionMap mapaAcciones = getActionMap();
     private JButton boton0;
+    private JButton boton1;
+    private JButton boton2;
+    private JButton boton3;
+    private JButton boton4;
+    private JButton boton5;
+    private JButton boton6;
+    private JButton boton7;
+    private JButton boton8;
+    private JButton boton9;
+    private JButton botonP;
+    private JButton botonCS;
+
 
     public tecladoNumerico() {
         setLayout(new GridLayout(4, 3, 10, 10));
@@ -24,11 +36,13 @@ public class tecladoNumerico extends JPanel {
             String caracter = c + "";
             char tecla = (char) (c + '0');
             JButton boton = new JButton(caracter);
+            boton.setName("boton" + c);
             add(boton);
             setBinding(tecla, boton);
+
             boton.setBackground(Color.LIGHT_GRAY);
             boton.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
-            boton.setFocusPainted(true);// false
+            boton.setFocusPainted(false); //para que no se marque el texto al pulsar el boton
         }
         // Añadimos botones "0", "." y "+/-" y los asociamos a la tecla correspondiente
         boton0 = new JButton("0");
@@ -36,12 +50,12 @@ public class tecladoNumerico extends JPanel {
         char tecla = '0';
         setBinding(tecla, boton0);
 
-        JButton botonP = new JButton(".");
+        botonP = new JButton(".");
         add(botonP);
         char teclaP = '.';
         setBinding(teclaP, botonP);
 
-        JButton botonCS = new JButton("+/-");
+        botonCS = new JButton("+/-");
         add(botonCS);
         char teclaCS = 'ç';
         setBinding(teclaCS, botonCS);
@@ -67,6 +81,19 @@ public class tecladoNumerico extends JPanel {
         boton0.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 displayPantalla.setDigito("0");
+            }
+        });
+    }
+
+    public void addActionListener(pantallaLcd displayPantalla) {
+        botonP.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito(".");
+            }
+        });
+        botonCS.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito("+/-");
             }
         });
     }
