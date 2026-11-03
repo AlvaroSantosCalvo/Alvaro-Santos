@@ -39,11 +39,10 @@ public class App {
 
         // Creamos un objeto del tipo teclado de numérico
         tecladoNumerico tecladoNumerico = new tecladoNumerico();
-        tecladoNumerico.requestFocusInWindow();
 
         // Creamos un objeto del tipo teclado de operadores
         tecladoOperadores tecladoOperadores = new tecladoOperadores();
-        tecladoOperadores.requestFocusInWindow();
+        tecladoOperadores.setFocusable(true);
 
         JPanel copyright = new JPanel();
         copyright.setLayout(new FlowLayout());
@@ -55,7 +54,9 @@ public class App {
         ventana.add(copyright, BorderLayout.SOUTH);
 
         tecladoNumerico.getPantalla(pantalla);
+        tecladoOperadores.getOperadores(pantalla);
         ventana.setVisible(true);
+        javax.swing.SwingUtilities.invokeLater(tecladoOperadores::requestFocusInWindow);
         
         // Para la selección de elementos del comboBox modCalc
         modCalc.addActionListener(new ActionListener() {

@@ -16,18 +16,9 @@ public class tecladoNumerico extends JPanel {
     private InputMap mapaEntrada = getInputMap(WHEN_IN_FOCUSED_WINDOW);
     private ActionMap mapaAcciones = getActionMap();
     private JButton boton0;
-    private JButton boton1;
-    private JButton boton2;
-    private JButton boton3;
-    private JButton boton4;
-    private JButton boton5;
-    private JButton boton6;
-    private JButton boton7;
-    private JButton boton8;
-    private JButton boton9;
     private JButton botonP;
     private JButton botonCS;
-
+    private JButton botonesNum[] = new JButton[10];
 
     public tecladoNumerico() {
         setLayout(new GridLayout(4, 3, 10, 10));
@@ -35,14 +26,15 @@ public class tecladoNumerico extends JPanel {
         for (int c = 1; c <= 9; c++) {
             String caracter = c + "";
             char tecla = (char) (c + '0');
-            JButton boton = new JButton(caracter);
-            boton.setName("boton" + c);
-            add(boton);
-            setBinding(tecla, boton);
+            botonesNum[c] = new JButton(caracter);
+            // boton.setName("boton" + c);
 
-            boton.setBackground(Color.LIGHT_GRAY);
-            boton.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
-            boton.setFocusPainted(false); //para que no se marque el texto al pulsar el boton
+            botonesNum[c].setBackground(Color.ORANGE);
+            botonesNum[c].setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
+            botonesNum[c].setFocusPainted(false); // para que no se marque el texto al pulsar el boton
+
+            add(botonesNum[c]);
+            setBinding(tecla, botonesNum[c]);
         }
         // Añadimos botones "0", "." y "+/-" y los asociamos a la tecla correspondiente
         boton0 = new JButton("0");
@@ -57,24 +49,26 @@ public class tecladoNumerico extends JPanel {
 
         botonCS = new JButton("+/-");
         add(botonCS);
-        char teclaCS = 'ç';
+        char teclaCS = 's';
         setBinding(teclaCS, botonCS);
 
-        boton0.setBackground(Color.LIGHT_GRAY);
-        botonP.setBackground(Color.LIGHT_GRAY);
-        botonCS.setBackground(Color.LIGHT_GRAY);
+        boton0.setBackground(Color.ORANGE);
+        botonP.setBackground(Color.ORANGE);
+        botonCS.setBackground(Color.ORANGE);
         boton0.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         botonP.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         botonCS.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
 
-        /* for (int i = 0; i < getComponentCount(); i++) {
-            JButton boton = (JButton) getComponent(i);
-            boton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    boton.setBackground(Color.CYAN);
-                }
-            });
-        } */
+        /*
+         * for (int i = 0; i < getComponentCount(); i++) {
+         * JButton boton = (JButton) getComponent(i);
+         * boton.addActionListener(new ActionListener() {
+         * public void actionPerformed(ActionEvent e) {
+         * boton.setBackground(Color.CYAN);
+         * }
+         * });
+         * }
+         */
     }
 
     public void getPantalla(pantallaLcd displayPantalla) {
@@ -83,9 +77,6 @@ public class tecladoNumerico extends JPanel {
                 displayPantalla.setDigito("0");
             }
         });
-    }
-
-    public void addActionListener(pantallaLcd displayPantalla) {
         botonP.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 displayPantalla.setDigito(".");
@@ -96,6 +87,51 @@ public class tecladoNumerico extends JPanel {
                 displayPantalla.setDigito("+/-");
             }
         });
+        botonesNum[1].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito("1");
+            }
+        });
+        botonesNum[2].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito("2");
+            }
+        });
+        botonesNum[3].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito("3");
+            }
+        });
+        botonesNum[4].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito("4");
+            }
+        });
+        botonesNum[5].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito("5");
+            }
+        });
+        botonesNum[6].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito("6");
+            }
+        });
+        botonesNum[7].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito("7");
+            }
+        });
+        botonesNum[8].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito("8");
+            }
+        });
+        botonesNum[9].addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayPantalla.setDigito("9");
+            }
+        });        
     }
 
     private void setBinding(char c, final JButton boton) {

@@ -14,7 +14,7 @@ public class pantallaLcd extends JPanel {
     public pantallaLcd() {
         /* JPanel pantalla = new JPanel(); */
         setLayout(new FlowLayout());
-        setBorder( new EmptyBorder(12, 12, 12, 12));
+        setBorder(new EmptyBorder(12, 12, 12, 12));
         lcdArea = new JTextArea(1, 18);
         lcdArea.setBackground(Color.BLACK);
         lcdArea.setForeground(Color.WHITE);
@@ -36,19 +36,17 @@ public class pantallaLcd extends JPanel {
 
     }
 
-    public String getDigito(String digito) {
+    public void setDigito(String digito) {
         lcdArea.append(digito);
-        return lcdArea.getText();
     }
 
-    public void setDigito(String lcd) {
-        lcdArea.append(lcd);
+    public String getDigito() {
+        return digitos;
     }
 
-    public void clearPantalla(String lcd) {
+    public void clearPantalla() {
         this.digitos = "";
         lcdArea.setText("");
     }
-    
 
 }
