@@ -24,16 +24,6 @@ public class pantallaLcd extends JPanel {
         lcdArea.setFocusable(false);
         add(lcdArea);
 
-        /*
-         * JTextField lcdDisplay = new JTextField("0.", 18);
-         * lcdDisplay.setHorizontalAlignment(JTextField.RIGHT);
-         * lcdDisplay.setBackground(Color.BLACK);
-         * lcdDisplay.setForeground(Color.WHITE);
-         * lcdDisplay.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
-         * lcdDisplay.setFocusable(false);
-         * add(pantalla);
-         */
-
     }
 
     public void setDigito(String digito) {

@@ -69,30 +69,6 @@ public class App {
             }
         });
 
-        /*
-         * // Creamos componentes para el panel pantalla
-         * JTextField lcdDisplay = new JTextField("0.", 18);
-         * lcdDisplay.setHorizontalAlignment(JTextField.RIGHT);
-         * lcdDisplay.setPreferredSize(new Dimension(0, 70));
-         * lcdDisplay.setBackground(Color.BLACK);
-         * lcdDisplay.setForeground(Color.WHITE);
-         * lcdDisplay.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
-         * 
-         * lcdDisplay.setFocusable(false);
-         */
-
-        /*
-         * JComboBox<String> modCalc = new JComboBox<String>();
-         * modCalc.addItem("Estándar");
-         * modCalc.addItem("Científica");
-         */
-
-        /*
-         * // Añadimos componentes al panel pantalla
-         * pantalla.add(modCalc);
-         * pantalla.add(lcdDisplay);
-         */
-
         // Creamos componentes para el panel copyright
         JTextField textoCopyright = new JTextField("Calculadora by DAM2");
         textoCopyright.setHorizontalAlignment(JTextField.CENTER);
@@ -100,18 +76,5 @@ public class App {
         textoCopyright.setEditable(false);
         textoCopyright.setBorder(null);
         copyright.add(textoCopyright);
-
-
-        /* // Para la selección de elementos del comboBox modCalc
-        modCalc.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (modCalc.getSelectedItem() == "Científica") {
-                    tecladoOperadores.setVisible(false);
-                } else {
-                    tecladoOperadores.setVisible(true);
-                }
-            }
-        }); */
-
     }
 }

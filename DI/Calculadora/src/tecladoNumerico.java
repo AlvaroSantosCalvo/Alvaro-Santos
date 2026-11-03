@@ -58,17 +58,6 @@ public class tecladoNumerico extends JPanel {
         boton0.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         botonP.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
         botonCS.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
-
-        /*
-         * for (int i = 0; i < getComponentCount(); i++) {
-         * JButton boton = (JButton) getComponent(i);
-         * boton.addActionListener(new ActionListener() {
-         * public void actionPerformed(ActionEvent e) {
-         * boton.setBackground(Color.CYAN);
-         * }
-         * });
-         * }
-         */
     }
 
     public void getPantalla(pantallaLcd displayPantalla) {
@@ -144,18 +133,4 @@ public class tecladoNumerico extends JPanel {
             }
         });
     }
-
-    /*
-     * private void setBindings(char tecla, JButton boton) {
-     * String nombreAccion = String.valueOf(tecla);
-     * mapaEntrada.put(KeyStroke.getKeyStroke(tecla), nombreAccion);
-     * mapaAcciones.put(nombreAccion, new AbstractAction() {
-     * 
-     * @Override
-     * public void actionPerformed(ActionEvent e) {
-     * boton.doClick();
-     * }
-     * });
-     * }
-     */
 }
