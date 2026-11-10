@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Galeria</string>
+    <string name="txtCarga">Cargar imagen</string>
+    <string name="txtCargado">Imagen cargada</string>
+</resources>
