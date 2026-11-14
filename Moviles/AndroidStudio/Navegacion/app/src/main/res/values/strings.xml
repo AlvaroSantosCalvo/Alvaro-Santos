@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Navegacion</string>
+    <string name="enviar">Enviar</string>
+    <string name="volver">Volver</string>
+</resources>
