@@ -10,7 +10,7 @@ import java.util.List;
 
 import model.Producto;
 
-public class ProductoDAOTexto implements ProductoDAO {
+public class ProductoDAOTexto implements ProductoDAO<Producto, Integer> {
 
     private File fichero;
     private String patron;
