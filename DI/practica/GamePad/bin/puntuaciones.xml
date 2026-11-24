@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<puntuaciones>
+    <jugador>
+        <nombre>Juan</nombre>
+        <puntos>1500</puntos>
+    </jugador>
+    <jugador>
+        <nombre>Pepe</nombre>
+        <puntos>4400</puntos>
+    </jugador>
+</puntuaciones>

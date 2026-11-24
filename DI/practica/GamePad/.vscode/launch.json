@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "GamePad_56d158c8",
+            "vmArgs": "--enable-native-access=javafx.media --enable-native-access=javafx.graphics --module-path C:\\Java\\javafx-sdk-27.0.1.1\\lib --add-modules javafx.controls,javafx.media,javafx.swing"
+        },
+        {
+            "type": "java",
+            "name": "Iniciar JavaFX",
+            "request": "launch",
+            "mainClass": "reproductorVideo",
+            "vmArgs": "--enable-native-access=javafx.media --enable-native-access=javafx.graphics --module-path C:\\Java\\javafx-sdk-27.0.1.1\\lib --add-modules javafx.controls,javafx.media"
+        }
+    ]
+}

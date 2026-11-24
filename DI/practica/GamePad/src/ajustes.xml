@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ajustes>
+    <resolucion>
+        <ancho>1920</ancho>
+        <alto>1080</alto>
+    </resolucion>
+    <calidad>
+        <texturas>alta</texturas>
+        <sombras>media</sombras>
+    </calidad>
+</ajustes>
