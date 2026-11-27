@@ -5,8 +5,10 @@ root = tk.Tk()
 root.title("Calculadora")
 root.geometry("600x800")
 
-root.columnconfigure(0, weight=1)
-root.columnconfigure(1, weight=9)
+root.columnconfigure(0, weight=2)
+root.columnconfigure(1, weight=2)
+root.columnconfigure(2, weight=2)
+root.columnconfigure(3, weight=4)
 
 opcion = ["Normal", "Científica"]
 selected_option = tk.StringVar(root)
@@ -16,12 +18,13 @@ menuOp = ttk.Combobox(root,
     textvariable=selected_option,
     values=opcion,
     state="readonly",
+    width=11
 )
 # Campo de texto para la pantalla de la calculadora
 pantalla = tk.Entry(root, background="black", foreground="white")
 pantalla.insert(0, "0")
 
-# Añadir el menu y la pantalla a la primera 
+# Añadir el menu y la pantalla a la primera fila de la rejilla
 menuOp.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 pantalla.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
 
